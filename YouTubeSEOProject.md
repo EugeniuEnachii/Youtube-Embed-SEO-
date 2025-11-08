@@ -87,7 +87,7 @@ First off, I downloaded the Excel file and cleaned it up. Also, created a backup
 
 ### Removing duplicate links and attributing a VideoID
 
- If we look closely at the video links, there are many duplicates. Since we don't want to download the same video multiple times, we can filter through all the videos to only give one link, then give an ID to better represent what video it is and where it came from. The algorithm goes as such : 
+If we look closely at the video links, there are many duplicates. Since we don't want to download the same video multiple times, we can filter through all the videos to only give one link, then give an ID to better represent what video it is and where it came from. The algorithm goes as such : 
 
 - The script searches for LinkFROriginal
 
@@ -98,6 +98,7 @@ First off, I downloaded the Excel file and cleaned it up. Also, created a backup
 - If it isn't in the list, add a new key pair for the link and the VideoID. The VideoID's format is "0000-SRC-LANGUAGE" (ex. "0001-YT-EN" , "0872-WC-BI" , "1202-YT-FR"). 
 
   - The script will then check for a CSV to find the source of every video. (As a prerequisite, find all unique websites and give them a 2-3 letter code, then put in a CSV) 
+    - The name of the script is "Create-FilteredLinkSources.ps1"
   - The script will then check if the video link is the same in LinkFROriginal and LinkENOriginal.  That's how it will add the "-EN, -FR, or -BI (for bilingual)" at the end of the VideoID
 
 - If it is on the list, it passes to the next link in the list

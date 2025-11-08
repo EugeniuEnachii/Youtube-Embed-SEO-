@@ -1,6 +1,5 @@
 param(
     [Parameter(mandatory=$true)][ValidateScript ({Test-Path $_})][string] $PathCSV
-
 )
 
 $MainCSV = Import-Csv -Path $PathCSV -Delimiter ';'
