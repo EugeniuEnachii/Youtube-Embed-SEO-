@@ -106,9 +106,20 @@ First off, I downloaded the Excel file and cleaned it up. Also, created a backup
 
 - Then, append the VideoID to the source CSV in either the VideoID-FR or VideoID-EN (or both if bilingual)
 
+Now, we have a list of all unique videos we need to download. **However, these are not the actual links containing the video format we need.** In order to get the actual link for the downloads, we need to do some more steps.
 
+### For YouTube videos
 
+Almost all the YouTube links are embed links. Embed links do not work for downloading with tools such as JDownloader2. 
 
+Fortunately, changing an embed to a normal youtube video is simple.
+
+- Embed link structure : "https://www.youtube.com/embed/FUCQo_wYR4s"
+- Youtube video link structure : "https://www.youtube.com/watch?v=FUCQo_wYR4s"
+
+All we need to do is use a regex that get the ID at the end of the embed "FUCQo_wYR4s" and append it at the end of ""https://www.youtube.com/watch?v="
+
+Once we have this new link, append it to the VideoID CSV file under the "TrueVideoLink" column.  
 
 
 
@@ -119,3 +130,7 @@ Using "Invoke-WebRequest -Uri "non-Youtube link" -OutFile , we are granted the H
 ![image](3.png)
 
 In that result, we can observe a script containing JSON formatted data called window.bootstrapData. The one we're interested in is "files : label 180p : source". It gives a link to a clean video link. Using another Invoke-WebRequest on that link results in a pure .mp4 video file.
+
+This is what we're trying to search for every link that isn't from YouTube. For that purpose, take the CSV with unique links and make a use-case for each link structure. 
+
+Some of these links might also be dead. If the link is dead, append to a CSV of dead links. 
