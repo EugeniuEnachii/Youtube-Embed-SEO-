@@ -95,10 +95,9 @@ If we look closely at the video links, there are many duplicates. Since we don't
 
 - The script checks in a newly created dictionary if the video link is already in the list
 
-- If it isn't in the list, add a new key pair for the link and the VideoID. The VideoID's format is "0000-SRC-LANGUAGE" (ex. "0001-YT-EN" , "0872-WC-BI" , "1202-YT-FR"). 
+- If it isn't in the list, add a new key pair for the link and the VideoID. The VideoID's format is "0000-SRC" (ex. "0001-YOUTUBE" , "0872-WIDENCOLLECTIVE") 
 
-  - The script will then check for a CSV to find the source of every video. (As a prerequisite, find all unique websites and give them a 2-3 letter code, then put in a CSV) 
-    - The name of the script is "Create-FilteredLinkSources.ps1"
+  - The script will then check for a CSV to find the source of every video. (As a prerequisite, find all unique websites and give them a 2-3 letter code, then put in a CSV).  The name of the script is "Create-FilteredLinkSources.ps1"
   - The script will then check if the video link is the same in LinkFROriginal and LinkENOriginal.  That's how it will add the "-EN, -FR, or -BI (for bilingual)" at the end of the VideoID
 
 - If it is on the list, it passes to the next link in the list
