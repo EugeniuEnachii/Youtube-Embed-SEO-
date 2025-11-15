@@ -131,9 +131,13 @@ Fortunately, changing an embed to a normal youtube video is simple.
 
 All we need to do is use a regex that get the ID at the end of the embed "FUCQo_wYR4s" and append it at the end of ""https://www.youtube.com/watch?v="
 
-Once we have this new link, append it to the VideoID CSV file under the "TrueVideoLink" column.  
+Once we have this new link, append it to the VideoID CSV file under the "DownloadableLink" column.  
 
+The result is this : 
 
+![7](7.png)
+
+508 of 685 are YouTube videos.  So 177 of 685 come from somewhere else.
 
 ### For the non-YouTube links
 
@@ -143,7 +147,7 @@ There are 9 non-YouTube video sources :
 
 ![6](6.png)
 
-Here are the methods used for each of them.
+Here are the methods used for each of them. All of them will be stored in ConvertTo-DownloadableLink.ps1
 
 ##### Widen-Collective
 
