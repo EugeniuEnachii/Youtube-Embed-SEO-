@@ -57,4 +57,29 @@ foreach($line in $MainCSV){     # For each line in the Main CSV...
     }
     
 }
-$UniqueVideoLinks
+
+
+$NewCSV = @()
+
+foreach ($line in $MainCSV) {
+    
+    $existingEN = $UniqueVideoLinks | Where-Object { $_.Link -eq $line.LinkENOriginal }
+    $existingFR = $UniqueVideoLinks | Where-Object { $_.Link -eq $line.LinkFROriginal }
+    $AppendableToCSV = [PSCustomObject]@{
+        ProductSKU = $line.ProductSKU
+        Brand = $line.Brand
+        LinkFROriginal = $line.LinkFROriginal
+        "VideoID-FR" = $existingFR.VideoID
+        LinkENOriginal = $line.LinkENOriginal
+        "VideoID-EN" = $existingEN.VideoID
+    }
+
+    $NewCSV += $AppendableToCSV
+    
+}  
+
+$UniqueVideoLinks | Export-Csv "UniqueVideoLinks.csv" -Delimiter ';' -NoTypeInformation
+$NewCSV | Export-Csv "VideoInformation.csv" -Delimiter ';' -NoTypeInformation
+
+
+

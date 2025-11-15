@@ -98,7 +98,7 @@ If we look closely at the video links, there are many duplicates. Since we don't
 - If it isn't in the list, add a new key pair for the link and the VideoID. The VideoID's format is "0000-SRC" (ex. "0001-YOUTUBE" , "0872-WIDENCOLLECTIVE") 
 
   - The script will then check for a CSV to find the source of every video. (As a prerequisite, find all unique websites and give them a 2-3 letter code, then put in a CSV).  The name of the script is "Create-FilteredLinkSources.ps1"
-  - The script will then check if the video link is the same in LinkFROriginal and LinkENOriginal.  That's how it will add the "-EN, -FR, or -BI (for bilingual)" at the end of the VideoID
+  - The script will then check if the video link is the same in LinkFROriginal and LinkENOriginal.  ~~That's how it will add the "-EN, -FR, or -BI (for bilingual)" at the end of the VideoID~~ Actually, the language doesn't matter.
 
 - If it is on the list, it passes to the next link in the list
 
@@ -106,7 +106,19 @@ If we look closely at the video links, there are many duplicates. Since we don't
 
 - Then, append the VideoID to the source CSV in either the VideoID-FR or VideoID-EN (or both if bilingual)
 
-Now, we have a list of all unique videos we need to download. **However, these are not the actual links containing the video format we need.** In order to get the actual link for the downloads, we need to do some more steps.
+Now, we have a list of all unique videos we need to download. 
+
+![4](4.png)
+
+And we have a VideoID for all links.
+
+
+
+![4](5.png)
+
+
+
+**However, these are not the actual links containing the video format we need.** In order to get the actual link for the downloads, we need to do some more steps.
 
 ### For YouTube videos
 
@@ -125,13 +137,27 @@ Once we have this new link, append it to the VideoID CSV file under the "TrueVid
 
 ### For the non-YouTube links
 
-Using "Invoke-WebRequest -Uri "non-Youtube link" -OutFile , we are granted the HTML of a webpage.  
+There are 9 non-YouTube video sources :
+
+
+
+![6](6.png)
+
+Here are the methods used for each of them.
+
+##### Widen-Collective
+
+Using "Invoke-WebRequest -Uri "link" -OutFile , we are granted the HTML of a webpage.  
 
 ![image](3.png)
 
-In that result, we can observe a script containing JSON formatted data called window.bootstrapData. The one we're interested in is "files : label 180p : source". It gives a link to a clean video link. Using another Invoke-WebRequest on that link results in a pure .mp4 video file.
+In that result, we can observe a script containing JSON formatted data called window.bootstrapData. The one we're interested in is "files : label 1080p : source". It gives a link to a clean video link. Using another Invoke-WebRequest on that link results in a pure .mp4 video file.
 
 This is what we're trying to search for every link that isn't from YouTube. For that purpose, take the CSV with unique links and make a use-case for each link structure. 
 
 Some of these links might also be dead. If the link is dead, append to a CSV of dead links. 
+
+
+
+### 
 
