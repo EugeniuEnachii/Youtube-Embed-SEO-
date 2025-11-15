@@ -149,7 +149,7 @@ There are 9 non-YouTube video sources :
 
 Here are the methods used for each of them. All of them will be stored in ConvertTo-DownloadableLink.ps1
 
-##### Widen-Collective
+##### Widen-Collective , WidenNet
 
 Using "Invoke-WebRequest -Uri "link" -OutFile , we are granted the HTML of a webpage.  
 
@@ -157,9 +157,27 @@ Using "Invoke-WebRequest -Uri "link" -OutFile , we are granted the HTML of a web
 
 In that result, we can observe a script containing JSON formatted data called window.bootstrapData. The one we're interested in is "files : label 1080p : source". It gives a link to a clean video link. Using another Invoke-WebRequest on that link results in a pure .mp4 video file.
 
-This is what we're trying to search for every link that isn't from YouTube. For that purpose, take the CSV with unique links and make a use-case for each link structure. 
+56 of 177 are Widennet. 2 of 177 are Widencollective.
 
-Some of these links might also be dead. If the link is dead, append to a CSV of dead links. 
+
+
+##### Smugmug
+
+There's like 20 videos and there's a button to download them in full quality. It doesn't warrant using code.
+
+##### Edgenet
+
+They are already ready-to-download links. However, some links are dead. About 80 videos.
+
+##### Widencdn, Aprimocdn, and Brightcove
+
+There's a single source from all three and none work. Disregard.
+
+##### Vimeo and PlayerVimeo
+
+There are 3 videos on Vimeo, and most likely they can be downloaded with JDownloader2.
+
+
 
 
 
