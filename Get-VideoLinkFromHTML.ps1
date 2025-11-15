@@ -1,15 +1,9 @@
-param(
-    [Parameter(mandatory=$true)][ValidateScript ({Test-Path $_})][string] $PathCSV
-)
+function Get-1080pLink {
+    param([string]$Url)
+    $r = Invoke-WebRequest $Url
+    $pattern = '"label":\s*"1080p".*?"source":\s*"([^"]+)"'
+    [regex]::Matches($r.Content, $pattern, 'Singleline') |
+    ForEach-Object { $_.Groups[1].Value }
+}
 
-$Content = Import-Csv -Path $PathCSV -Delimiter ';'
-
-$Content
-
-#$Invocation = Invoke-WebRequest -Uri "URL"
-#
-#$HTMLFromInvocation = $Invocation.Content
-#
-#$VideoLinkRegexPattern = '"label":\s*"1080p".*?"source":\s*"([^"]+)"'
-#
-#[regex]::Matches($html, $pattern, 'Singleline') | ForEach-Object { $_.Groups[1].Value }
+Get-1080pLink "https://milwaukeetool.widen.net/s/vjzmzmqszg/milwaukeer-m18trade-mark-sign-milwaukeer-redlithiumtrade-mark-sign-forgetrade-mark-sign-hd12"
