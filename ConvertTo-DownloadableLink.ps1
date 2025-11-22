@@ -205,4 +205,4 @@ foreach ($line in $MainCSV) {
 }
 
 #$NewCSVOfDownloadableLinks | Where-Object -Property VideoID -Match "wide" | Select-Object -Property DownloadableLink
-$NewCSVOfDownloadableLinks | Export-Csv "TESTATEFTSFEAT.csv" -Delimiter ';' -NoTypeInformation
+$NewCSVOfDownloadableLinks | Export-Csv "UniqueDownloadableLinks.csv" -Delimiter ';' -NoTypeInformation

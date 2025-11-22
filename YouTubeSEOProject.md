@@ -163,11 +163,19 @@ In that result, we can observe a script containing JSON formatted data called wi
 
 ##### Smugmug
 
-There's like 20 videos and there's a button to download them in full quality. It doesn't warrant using code.
+There's around 20 videos and there's a button to download them in full quality. It doesn't warrant using code.
+
+And it's done!
+
+![9](9.png)
 
 ##### Edgenet
 
 They are already ready-to-download links. However, some links are dead. About 80 videos.
+
+On a second look, the links aren't dead, they just have a double-slash after the domain instead of a regular slash. Using a regex, they're removed, and downloaded. All the links work, so 80 videos are downloaded.
+
+![8](8.png)
 
 ##### Widencdn, Aprimocdn, and Brightcove
 

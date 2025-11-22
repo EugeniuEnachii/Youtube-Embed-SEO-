@@ -19,7 +19,7 @@ foreach($line in $MainCSV){     # For each line in the Main CSV...
     $AppendableHashtable   = "" # It's a hashtable that will get appended to $UniqueVideoLinks (ex : @{VideoID = "0001-YOUTUBE" ; Link = "www.youtube.com/watch?v=akjsKdSKJakah" })
 
 
-# =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^= a  =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
+# =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
     
 
     if($line.LinkFROriginal -match '^(?:https?:\/\/)?([^\/]+)') {
