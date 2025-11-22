@@ -139,6 +139,8 @@ The result is this :
 
 518 of 684 are YouTube videos.  So 166 of 684 come from somewhere else.
 
+Using JDownloader2, we can change the name structure of downloaded videos to their YoutubeVideoID. From it, we can use a search function with our CSV to know if it downloaded correctly and rename it to the VideoID from the CSV. Next week, I'll download the 500 videos hosted on Youtube.
+
 ### For the non-YouTube links
 
 There are 9 non-YouTube video sources :
