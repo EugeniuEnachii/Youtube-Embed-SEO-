@@ -30,7 +30,7 @@ foreach ($line in $MainCSV) {
 
                 $NewCSVOfDownloadableLinks += $Appendable
             }
-        
+            $line.VideoID
         }
 
 # =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=  
@@ -43,11 +43,12 @@ foreach ($line in $MainCSV) {
             }
 
             $NewCSVOfDownloadableLinks += $Appendable
+            $line.VideoID
         }
 
 # =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
 
-        { $_ -in "milwaukeetool.widen.net" } {
+        { $_ -in "milwaukeetool.widen.net" -or $_ -in "milwaukeetool.widencollective.com"} {
             function Get-1080pLink { 
                 param([string]$Url)
                 $r = Invoke-WebRequest $Url
@@ -56,9 +57,13 @@ foreach ($line in $MainCSV) {
                 ForEach-Object { $_.Groups[1].Value }
             }
 
-# =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
-
-            $VideoLinkWiden = Get-1080pLink "https://milwaukeetool.widen.net/s/w2l7zpqct2/milwaukeer-jobsite-lighti"
+            try {
+                $VideoLinkWiden = Get-1080pLink "$($line.Link)"
+            }
+            catch {
+                Write-Host "Error with $($line.VideoID)"
+            }
+           
 
             $Appendable = [PSCustomObject]@{
                 VideoID = $line.VideoID
@@ -67,31 +72,10 @@ foreach ($line in $MainCSV) {
             }
 
             $NewCSVOfDownloadableLinks += $Appendable
+            $line.VideoID
         }
 
-# =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
-
-        { $_ -in "milwaukeetool.widencollective.com" } {
-            function Get-1080pLink { 
-                param([string]$Url)
-                $r = Invoke-WebRequest $Url
-                $pattern = '"label":\s*"1080p".*?"source":\s*"([^"]+)"'
-                [regex]::Matches($r.Content, $pattern, 'Singleline') |
-                ForEach-Object { $_.Groups[1].Value }
-            }
-
-            $VideoLinkWiden = Get-1080pLink "https://milwaukeetool.widen.net/s/w2l7zpqct2/milwaukeer-jobsite-lighti"
-
-            $Appendable = [PSCustomObject]@{
-                VideoID = $line.VideoID
-                Link = $line.Link
-                DownloadableLink = "$VideoLinkWiden"
-            }
-
-            $NewCSVOfDownloadableLinks += $Appendable
-        }
-
-# =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
+# =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=     
 
         { $_ -in "milwaukeetoolca.smugmug.com" } {
             $Appendable = [PSCustomObject]@{
@@ -101,6 +85,7 @@ foreach ($line in $MainCSV) {
             }
 
             $NewCSVOfDownloadableLinks += $Appendable
+            $line.VideoID
         }
 
 # =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
@@ -113,6 +98,7 @@ foreach ($line in $MainCSV) {
             }
 
             $NewCSVOfDownloadableLinks += $Appendable
+            $line.VideoID
         }
 
 # =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
@@ -125,6 +111,7 @@ foreach ($line in $MainCSV) {
             }
 
             $NewCSVOfDownloadableLinks += $Appendable
+            $line.VideoID
         }
 
 # =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
@@ -137,6 +124,7 @@ foreach ($line in $MainCSV) {
             }
 
             $NewCSVOfDownloadableLinks += $Appendable
+            $line.VideoID
         }
 
 # =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
@@ -149,6 +137,7 @@ foreach ($line in $MainCSV) {
             }
 
             $NewCSVOfDownloadableLinks += $Appendable
+            $line.VideoID
         }
 
 # =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
@@ -161,6 +150,7 @@ foreach ($line in $MainCSV) {
             }
 
             $NewCSVOfDownloadableLinks += $Appendable
+            $line.VideoID
         }
 
 # =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=   
@@ -177,6 +167,7 @@ foreach ($line in $MainCSV) {
 
                 $NewCSVOfDownloadableLinks += $Appendable
             }
+            $line.VideoID
         }
 
         { $_ -in "0" } {
@@ -187,6 +178,7 @@ foreach ($line in $MainCSV) {
             }
 
             $NewCSVOfDownloadableLinks += $Appendable
+            $line.VideoID
         }
         
         default {
@@ -199,6 +191,7 @@ foreach ($line in $MainCSV) {
             }
 
             $NewCSVOfDownloadableLinks += $Appendable
+            $line.VideoID
         }
 
 }
