@@ -137,7 +137,7 @@ The result is this :
 
 ![7](7.png)
 
-508 of 685 are YouTube videos.  So 177 of 685 come from somewhere else.
+518 of 684 are YouTube videos.  So 166 of 684 come from somewhere else.
 
 ### For the non-YouTube links
 
@@ -159,7 +159,10 @@ In that result, we can observe a script containing JSON formatted data called wi
 
 56 of 177 are Widennet. 2 of 177 are Widencollective.
 
+They are all downloaded! (after fixing a bug in ConvertTo-DownloadableLink.ps1)
+However, 0225, 0362, 0375 are .mov. Will need to convert to mp4.
 
+![10](10.png)
 
 ##### Smugmug
 
@@ -185,9 +188,8 @@ There's a single source from all three and none work. Disregard.
 
 There are 3 videos on Vimeo, and most likely they can be downloaded with JDownloader2.
 
-
-
-
-
 ### 
 
+## MoviePy
+
+Let's start using MoviePy.
