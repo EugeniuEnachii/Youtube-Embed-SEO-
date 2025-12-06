@@ -196,8 +196,23 @@ There are 3 videos on Vimeo, and most likely they can be downloaded with JDownlo
 
 ## MoviePy
 
-Using MoviePy, we are able to concatenate videos. It is therefore pretty simple to give them an intro (the Company logo) and an outro if need be. 
+Using MoviePy, we are able to concatenate videos. It is therefore pretty simple to give them an intro (the Company logo) and an outro if need be. I need to wait a bit for the format of the videos to be aprooved.
 
 ![11](11.png)
 
 One more step, we need to take the names of the Youtube videos and give them their VideoID back (currently they have the video ID from Youtube) 
+
+And now they have their names back!
+
+![12](12.png)
+
+## Uploading videos with the YouTube API
+
+YouTube has a python-based API, with which the upload of a video can be made automatically. Furthermore, details can be added, such as title, description, tags etc.
+
+![13](13.png)
+
+The issue is, uploading a video costs 1600 Units. A regular account is granted 10000 Units/Day. Around 6 videos can be uploaded per day. 
+In order to get more Units/Day, we need to let YouTube do an audit of the project in order to make sure it's legitimate. 
+
+For both , I need access to the company account, which I currently do not have. 
