@@ -216,3 +216,15 @@ The issue is, uploading a video costs 1600 Units. A regular account is granted 1
 In order to get more Units/Day, we need to let YouTube do an audit of the project in order to make sure it's legitimate. 
 
 For both , I need access to the company account, which I currently do not have. 
+
+## Videos to add manually
+
+I've been asked to put these videos manually (They don't come from the Excel files)
+
+- https://www.youtube.com/watch?v=AHSlIZUYtvc (MIL0887-20)
+- https://www.youtube.com/watch?v=9VGCBy_7-JE (MIL3052-20, MIL3052-21, MIL3053-20, MIL3053-21, MIL3054-20, MIL3054-21)
+- https://www.youtube.com/watch?v=_mJWQAyxXwg (MIL5150-20)
+- https://www.youtube.com/watch?v=7dB0SJqMsLY (MIL2828-20E, MIL2828-21E, MIL2828-21, MIL2828-20)
+- https://www.youtube.com/embed/vTaBh4Xm2Sk?si=RqEVP25n5yhwipKU (PIA2020 , PIA2030)
+
+When I'll be ready to launch the MoviePy script, I'll add them to the file
