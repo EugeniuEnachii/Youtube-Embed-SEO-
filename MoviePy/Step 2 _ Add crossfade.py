@@ -12,7 +12,7 @@ from moviepy.video.fx.CrossFadeIn import CrossFadeIn
 
 # Collect clips
 clips = glob.glob('OutputStep1/*.mp4')
-outro = VideoFileClip("IntroOutro/OutroFrame5s.mp4", target_resolution = (1980, 1080))
+outro_base = VideoFileClip("IntroOutro/OutroFrame5s.mp4", target_resolution = (1980, 1080))
 
 # Initialize list to store the clips
 clips_used = []
@@ -42,20 +42,24 @@ for clip_path in clips:
     )
 
     # 3. Apply crossfade-in to clip2
-    outro = outro.with_effects([CrossFadeIn(crossfade_duration)])
+    outro_crossfade = outro_base.with_effects([CrossFadeIn(crossfade_duration)])
 
     # 4. Timeline placement
-    outro = outro.with_start(freeze_duration - crossfade_duration)
+    outro_cf_withstart = outro_crossfade.with_start(freeze_duration - crossfade_duration)
 
     # 5. Composite
-    final = CompositeVideoClip([freeze_clip, outro])
+    final = CompositeVideoClip([freeze_clip, outro_cf_withstart])
 
     # Export
     final.write_videofile(f"OutputStep2/{clip_name}_Step2.mp4", fps = 60 )
 
+    final.close()
+    video_clip.close()
+    freeze_clip.close()
 
-clip_name = Path("OutputStep1/*.mp4").stem[:-6]
-print(clip_name)
+outro_base.close()
+# clip_name = Path("OutputStep1/*.mp4").stem[:-6]
+# print(clip_name)
 
 
 

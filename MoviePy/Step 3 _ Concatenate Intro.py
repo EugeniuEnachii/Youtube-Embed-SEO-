@@ -14,7 +14,7 @@ clips = glob.glob('OutputStep1/*.mp4')
 intropath = glob.glob('IntroOutro/IntroFinal.mp4')[0]
 
 watermarkpath = glob.glob('IntroOutro/Use this one with posiition 1590 989.png')[0]
-intro = VideoFileClip(intropath, target_resolution = (1980, 1080))
+intro_base = VideoFileClip(intropath, target_resolution = (1980, 1080))
 
 
 
@@ -40,10 +40,9 @@ for clip_path in clips:
     video_clip = VideoFileClip(clip_path, target_resolution = (1980, 1080))
     video_clip_with_fadein = moviepy.video.fx.FadeIn(1).copy().apply(video_clip)
 
-
-
+    intro = intro_base.copy()
     #Add processed clips to the list
-    clips_used.append(intro)
+    clips_used.append(intro_base)
     clips_used.append(video_clip_with_fadein)
     clips_used.append(outro)
 
