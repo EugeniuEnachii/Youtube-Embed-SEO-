@@ -9,7 +9,7 @@ from moviepy import *
 from pathlib import Path
 
 # Collect clips
-clips = glob.glob('SourceVideos/*.mp4')
+clips = glob.glob('OutputStep0 (Add videos here)/*.mp4')
 watermarkpath = glob.glob('IntroOutro/Use this one with posiition 1590 989.png')[0]
 overlay_watermark = ImageClip(watermarkpath)  #Watermark
 

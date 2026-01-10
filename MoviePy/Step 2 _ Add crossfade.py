@@ -28,7 +28,7 @@ for clip_path in clips:
     #Create a VideoFileClip object and resized them
     video_clip = VideoFileClip(clip_path, target_resolution = (1980, 1080))
 
-    freeze_duration = 2.0
+    freeze_duration = 1.3
     crossfade_duration = 0.8
 
     # 1. Extract ONLY the last frame of video_clip
